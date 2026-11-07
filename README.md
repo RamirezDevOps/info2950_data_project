@@ -21,7 +21,7 @@ This project examines the relationship between Joe Biden’s presidential approv
 - [Brookings: Popular Political Podcast Dataset](https://politicalpodcastproject.shinyapps.io/dataset/)
 - [Project raw CSV files](https://drive.google.com/drive/folders/1Qq1Ne2AHGYFrRtM5lEPPehE-ikWU0Dv6?usp=drive_link)
 
-See [data/README.md](data/README.md) for filenames, variables, and processing notes.
+See [data/README.md](data/README.md) for filenames, variables, and processing notes. The latest preparation workflow is [Phase III data cleaning](phase3/README.md), with six exported CSVs included in `data/clean/`. The combined dataset now has **47 rows and 17 columns**; December 2022 has no approval observation, leaving 46 months for analyses requiring approval.
 
 ## Repository structure
 
@@ -37,22 +37,33 @@ See [data/README.md](data/README.md) for filenames, variables, and processing no
 │   ├── Phase II.ipynb
 │   ├── Phase II.pdf
 │   └── preregistration.md
+├── phase3/
+│   ├── README.md
+│   └── cleaning.ipynb
 └── data/
-    └── README.md
+    ├── README.md
+    └── clean/
+        ├── bidenApprovalRatingClean.csv
+        ├── podcastDataCleaned.csv
+        ├── monthlyPodcastData.csv
+        ├── hunter_only_review.csv
+        ├── showMonthlyData.csv
+        └── combinedMonthlyProportions.csv
 ```
 
 - [Phase 1](phase1/README.md): original dataset ideas, sources, and reviewer questions.
 - [Phase 2](phase2/README.md): notebook with saved outputs, PDF report, and preregistration.
-- [Data](data/README.md): documentation and the link to the raw files.
+- [Phase 3](phase3/README.md): revised cleaning notebook, exported datasets, and reproduction instructions.
+- [Data](data/README.md): cleaned dataset schemas and the link to the external raw files.
 
-The original Phase 1 proposal explored election forecasting using prediction markets, polls, and election results. Phase 2 develops the approval-rating and podcast project described above.
+The original Phase 1 proposal explored election forecasting using prediction markets, polls, and election results. Phase 2 develops the approval-rating and podcast project described above. Phase 3 revises its data preparation following TA feedback, retaining episodes that mention both Hunter and another Biden, flagging Hunter-only episodes for review, calculating alternative rates that count those episodes, and exporting a show-by-month table. A separate Phase III analysis report is not currently included.
 
 ## Viewing and running the analysis
 
-Open the [Phase II PDF](<phase2/Phase II.pdf>) to read the report, or the [notebook](<phase2/Phase II.ipynb>) to inspect the code and saved outputs.
+Open the [Phase III cleaning notebook](phase3/cleaning.ipynb) for the current preparation code and saved outputs, or use the included [cleaned CSVs](data/clean/). The [Phase II PDF](<phase2/Phase II.pdf>) and [notebook](<phase2/Phase II.ipynb>) preserve the earlier exploratory analysis and mention-counting rule.
 
-To run locally, use Python 3.12 or newer, install [requirements.txt](requirements.txt), and download the two raw CSVs linked above. See [Phase 2 setup instructions](phase2/README.md#running-locally) for the commands and file placement.
+To reproduce the current cleaning, use Python 3.12 or newer and follow the [Phase 3 setup instructions](phase3/README.md#running-locally). Place the raw CSVs in `data/raw/` and launch the notebook from `phase3/`; it writes to `data/clean/`. The raw-data directory is ignored by Git. For the older exploratory analysis, follow the separate [Phase 2 setup instructions](phase2/README.md#running-locally).
 
 ## AI assistance acknowledgment
 
-OpenAI Codex, an AI coding assistant, was used to organize the repository, draft the README files from the supplied project materials, copy the notebook’s existing preregistration into a separate Markdown file, and update setup and dependency documentation. The notebook and PDF contents were preserved unchanged during this organization work. The team remains responsible for the submitted content.
+OpenAI Codex, an AI coding assistant, was used to organize the repository, draft and update the README files from the supplied project materials, copy the notebook’s existing preregistration into a separate Markdown file, and update setup and dependency documentation. This README update documents the Phase III notebook and cleaned exports without changing or rerunning the notebooks. The Phase III notebook contains its own acknowledgment of Claude assistance during its revision. The team remains responsible for the submitted content.

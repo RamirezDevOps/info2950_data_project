@@ -10,7 +10,7 @@ The original proposal considered the following three sources for comparing elect
 | VoteHub polling | Compare election polling with prediction market forecasts | [VoteHub Polling API](https://votehub.com/polls/api/); proposed Python API collection |
 | Associated Press 2026 election results | Compare forecasts with eventual election outcomes | [AP election results](https://apnews.com/projects/elections-2026/); proposed webpage collection after results are published |
 
-These are the original proposal’s plans. Phase 2 uses Gallup and Brookings data for a different research topic.
+These are the original proposal’s plans. [Phase 2](../phase2/README.md) uses Gallup and Brookings data for a different research topic: Biden approval ratings and political podcast mentions. [Phase 3](../phase3/README.md) contains the revised cleaning workflow and exports datasets to `data/clean/`. See the [project overview](../README.md) for the current repository structure.
 
 ## Questions for reviewers
 

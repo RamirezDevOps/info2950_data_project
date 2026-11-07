@@ -11,6 +11,10 @@ The notebook and report cover research questions, data collection and cleaning, 
 
 The exploratory analysis includes summary statistics, plots, Pearson and Spearman correlations, and variance inflation factors. The two preregistered regressions are proposed analyses; they are not fitted in this notebook.
 
+## Relationship to Phase 3
+
+This notebook preserves the Phase II workflow and its original 10-column combined dataset. It sets the mention indicator to zero whenever either metadata field contains “Hunter Biden,” including episodes that also mention Joe Biden. The [Phase III cleaning notebook](../phase3/README.md) revises that rule, adds Hunter-only review and alternative mention measures, and exports a 17-column combined dataset plus a show-by-month table to `data/clean/`. Use those exports for the current data preparation; the saved Phase II results describe the earlier rule.
+
 ## Running locally
 
 Use **Python 3.12 or newer** because the notebook contains f-string syntax requiring Python 3.12+. From the repository root:
@@ -38,6 +42,6 @@ cd phase2
 jupyter lab "Phase II.ipynb"
 ```
 
-Run all cells in order. The notebook writes or overwrites the four generated CSVs listed in [data/README.md](../data/README.md) in its working directory. The `data/` folder contains documentation; the current notebook does not use it as a file path.
+Run all cells in order. The notebook writes or overwrites `bidenApprovalRatingClean.csv`, `podcastDataCleaned.csv`, `monthlyPodcastData.csv`, and `combinedMonthlyProportions.csv` in its working directory (`phase2/` with this setup). These are Phase II outputs; this notebook does not read from or write to `data/clean/`. Phase III uses a separate [setup and export workflow](../phase3/README.md#running-locally).
 
 The requirements file preserves the specified Statsmodels version; other analysis dependencies are unpinned. It is not a complete lockfile for the original environment. The notebook and PDF were left unchanged during this documentation update, and the analysis was not rerun.
